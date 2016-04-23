@@ -7,7 +7,7 @@ module.exports = function(passport){
     router.get('/success', function(req, res){
         console.log('req.user=' + req.user);
         res.send({state: 'success', user: req.user ? req.user : null});
-        //res.redirect('/');
+        res.redirect('/');
     });
 
     //sends failure login state back to angular
