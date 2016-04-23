@@ -60,7 +60,7 @@ module.exports = function(passport){
         	}
 
             //console.log('users json' + users);
-        	console.log('User '+ users[username].username + ' was registered successful');
+        	console.log('User '+ users[username].username + ' was registered successfully');
 
             return done(null, users[username]);
 
