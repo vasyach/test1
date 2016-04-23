@@ -19,17 +19,19 @@ app.set('view engine', 'ejs');
 
 app.use(favicon());
 app.use(logger('dev'));
-app.use(session({
+/*app.use(session({
     secret: 'super duper secret' 
 }));
-
+*/
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//
 app.use('./api',api);
+
 //app/use(passport.initialize());
 //app.use(passport.session());
 app.use('/', routes);
