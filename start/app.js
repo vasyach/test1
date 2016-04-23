@@ -30,7 +30,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //
-app.use('./api',api);
+app.use('/api',api);
 
 //app/use(passport.initialize());
 //app.use(passport.session());
