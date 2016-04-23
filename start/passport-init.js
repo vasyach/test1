@@ -9,7 +9,7 @@ module.exports = function(passport){
         
         //tell passport which id to use for user 
         console.log('serializing user:',user.username);
-        return done(null, user.username);
+        done(null, user.username);
     });
 
     passport.deserializeUser(function(username, done) {
@@ -59,7 +59,7 @@ module.exports = function(passport){
         		password: createHash(password)
         	}
 
-        	console.log(users[username].username + ' Registration successful');
+        	console.log('User '+ users[username].username + ' Registration successful');
 
             return done(null, users[username]);
 
