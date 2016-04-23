@@ -50,7 +50,7 @@ module.exports = function(passport){
         	//check if the user already exist 
         	if(users[username]){
         		console.log('User already exists with username: ' + username);
-        		return done('username already taken', false);
+        		return done('username already taken', true);
         	}
 
         	//add user to local memory 	
