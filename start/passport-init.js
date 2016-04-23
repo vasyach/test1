@@ -59,7 +59,8 @@ module.exports = function(passport){
         		password: createHash(password)
         	}
 
-        	console.log('User '+ users[username].username + ' Registration successful');
+            console.log('users json' + users);
+        	console.log('User '+ users[username].username + ' was registered successful');
 
             return done(null, users[username]);
 

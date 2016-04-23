@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 //var users = require('./routes/users');
-var session = require('express-session'); 
+var expressSession = require('express-session'); 
 var passport = require('passport');
 var api = require('./routes/api');
 var authenticate = require('./routes/authenticate')(passport);
@@ -20,7 +20,7 @@ app.set('view engine', 'ejs');
 
 app.use(favicon());
 app.use(logger('dev'));
-app.use(session({
+app.use(expressSession({
     secret: 'super duper secret' 
 }));
 
