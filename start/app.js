@@ -4,9 +4,12 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var session = require('express-session'); 
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var api = require('./routes/api');
 
 var app = express();
 
@@ -16,11 +19,19 @@ app.set('view engine', 'ejs');
 
 app.use(favicon());
 app.use(logger('dev'));
+app.use(session({
+    secret: 'super duper secret' 
+}));
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('./api',api);
+app/use(passport.initialize());
+app.use(passport.session());
 app.use('/', routes);
 app.use('/users', users);
 
