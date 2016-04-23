@@ -26,17 +26,18 @@ module.exports = function(passport){
 
         	//check if user exists 
         	if(!users[username]){
+        		console.log('User Not Found with username ' + username);
         		return done('user not found', false);
         	}
 
         	//check if password is correct 
         	if(!isValidPassword(users[username], password)){
+        		console.log('Invalid password for' + username);
         		return done('invalid password!', false); 
         	}
 
         	//succesfully signed in
-        	console.log('succesfully signed in');
-
+        	console.log('User ' + username + ' succesfully signed in');
             return done(null, users[username]);
         }
     ));
@@ -48,14 +49,17 @@ module.exports = function(passport){
 
         	//check if the user already exist 
         	if(users[username]){
+        		console.log('User already exists with username: ' + username);
         		return done('username already taken', false);
         	}
 
-        	//add user to local db	
+        	//add user to local memory 	
         	users[username] = {
         		username: username,
         		password: createHash(password)
-        	};
+        	}
+
+        	console.log(users[username].username + ' Registration successful');
 
             return done(null, users[username]);
 
