@@ -50,7 +50,7 @@ module.exports = function(passport){
         	//check if the user already exist 
         	if(users[username]){
         		console.log('User already exists with username: ' + username);
-        		return done('username already taken', true);
+        		return done('username already taken', false);
         	}
 
         	//add user to local memory 	
@@ -64,8 +64,8 @@ module.exports = function(passport){
 
             return done(null, users[username]);
 
-        })
-    );
+        }
+    ));
 
     var isValidPassword = function(user, password){
         return bCrypt.compareSync(password, user.password);
