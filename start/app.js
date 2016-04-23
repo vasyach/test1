@@ -5,7 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-//var routes = require('./routes/index');
+var routes = require('./routes/index');
 //var users = require('./routes/users');
 var session = require('express-session'); 
 var passport = require('passport');
@@ -34,6 +34,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use('/', routes);
 app.use('/api',api);
 app.use('/auth', authenticate);
 
@@ -51,7 +52,7 @@ initPassport(passport);
 
 //
 
-//app.use('/', routes);
+
 //app.use('/users', users);
 
 
